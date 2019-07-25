@@ -1,5 +1,8 @@
+################################################################################
 # R code to resize images using EBImage package's resize function
+# Resize images for MLWIC package
 # credit: https://github.com/VwakeM/MLWIC/blob/master/ResizeImages.Rmd 
+################################################################################
 
 # # Package installation instructions
 # if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -20,7 +23,8 @@ files$id = 0
 # saves resized images in the resized folder under the image folder. 
 # need to create the folder called resized, within image folder
 
-pb <- winProgressBar(title="Image resize progress bar", label="0% done", min=0, max=100, initial=0) # progress bar
+pb <- winProgressBar(title="Image resize progress bar", label="0% done",
+                     min=0, max=100, initial=0) # progress bar
 for(i in 1:nrow(files))
 { 
   img_loc = paste(image_folder,files$file[i], sep="")
@@ -45,7 +49,8 @@ close(pb)
 write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert_eg/L1/data_info.csv",
          row.names=FALSE, col.names=FALSE, sep=",", quote=FALSE)
 
-# # create image_labels.csv file
-write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert_eg/image_labels.csv",
-            row.names=FALSE, col.names=FALSE, sep=",", quote=FALSE)
+### create image_labels.csv file
+### Not needed if data_info.csv is used in L1 folder when you don't know the species in the photos 
+# write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert_eg/image_labels.csv",
+#             row.names=FALSE, col.names=FALSE, sep=",", quote=FALSE)
 

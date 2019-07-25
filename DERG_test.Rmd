@@ -43,6 +43,9 @@ https://github.com/VwakeM/MLWIC/blob/master/ResizeImages.Rmd
 confusionMatrix(confusion.matrix)
 ```
 
+Sensitivity = true positives
+Specificity = true negatives
+
 ```{r}
 summary.table
 ```
