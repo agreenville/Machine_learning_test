@@ -19,6 +19,8 @@ files$id = 0
 # resizing files to 256 by 256 px as required by the MLWIC.
 # saves resized images in the resized folder under the image folder. 
 # need to create the folder called resized, within image folder
+
+pb <- winProgressBar(title="Image resize progress bar", label="0% done", min=0, max=100, initial=0) # progress bar
 for(i in 1:nrow(files))
 { 
   img_loc = paste(image_folder,files$file[i], sep="")
@@ -27,7 +29,14 @@ for(i in 1:nrow(files))
   # EBImage functions to resize and write image.
   img_rez = resize(img, w = 256, h = 256)
   writeImage(x = img_rez, files = img_crop_loc)
+  
+  # Progess bar
+  info <- sprintf("%d%% done", round((i/nrow(files))*100))
+  setWinProgressBar(pb, i/(nrow(files))*100, label=info)
 }
+#Once the loop is exited, close the progress bar window: 
+close(pb)
+
 
 # creates data_info.csv with 0 as species id for all images in the image folder. 
 # then may need to convert to Unix line endings using notepad ++
@@ -39,3 +48,4 @@ write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert
 # # create image_labels.csv file
 write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert_eg/image_labels.csv",
             row.names=FALSE, col.names=FALSE, sep=",", quote=FALSE)
+
