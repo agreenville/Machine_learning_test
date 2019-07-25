@@ -1,0 +1,35 @@
+---
+title: "Machine Learning test"
+author: "Aaron Greenville"
+date: "`r Sys.Date()`"
+output:
+  html_notebook:
+    toc: yes
+  pdf_document:
+    toc: yes
+geometry: left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm
+---
+
+
+```{r set-options, echo=FALSE, cache=FALSE, include=FALSE}
+source("scipt/DERG.eg.R")
+options(width = 150)
+```
+
+
+
+
+Testing Tabak *et al* Nth America deep learning model on desert camera trap data.
+Model trained on Nth American species and as is from paper.
+Testing to see if it can pick up animals, vehicles, people and empty photos in general.
+
+
+```{r}
+confusionMatrix(confusion.matrix)
+```
+
+```{r}
+summary.table
+```
+
+
