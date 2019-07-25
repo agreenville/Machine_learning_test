@@ -12,7 +12,7 @@ geometry: left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm
 
 
 ```{r set-options, echo=FALSE, cache=FALSE, include=FALSE}
-source("scipt/DERG.eg.R")
+source("script/DERG_eg.R")
 options(width = 150)
 ```
 
