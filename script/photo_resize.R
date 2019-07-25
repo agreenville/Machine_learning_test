@@ -31,6 +31,8 @@ for(i in 1:nrow(files))
 
 # creates data_info.csv with 0 as species id for all images in the image folder. 
 # then may need to convert to Unix line endings using notepad ++
+# You should not need to specify the line ending for an existing file
+# but for a new file you will want to set Edit > EOL Conversion > UNIX Format in notepad ++
 write.table(files, file = "D:/Users/agre6595/Camera_trap_machine_learning/desert_eg/L1/data_info.csv",
          row.names=FALSE, col.names=FALSE, sep=",", quote=FALSE)
 
